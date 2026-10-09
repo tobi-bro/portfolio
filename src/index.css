@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #050505;
+  --color-ink-900: #111111;
+  --color-charcoal: #1B1B1B;
+  --color-manga-gray: #777777;
+  --color-paper-gray: #D9D9D9;
+  --color-aged-paper: #F4F1EA;
+  --color-manga-red: #E10600;
+
+  --font-editorial: 'Cinzel', serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-marker: 'Permanent Marker', cursive;
+  --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+/* Base resets for manga publication feeling */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #050505;
+  color: #D9D9D9;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #050505;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+  overflow-x: hidden;
+}
+
+/* Custom Manga Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+  border-left: 1px solid #1B1B1B;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E10600;
+}
+
+/* Screentone Dot Patterns */
+.bg-screentone-light {
+  background-image: radial-gradient(#ffffff 15%, transparent 16%);
+  background-size: 6px 6px;
+}
+
+.bg-screentone-dark {
+  background-image: radial-gradient(#111111 20%, transparent 21%);
+  background-size: 6px 6px;
+}
+
+.bg-screentone-red {
+  background-image: radial-gradient(#E10600 25%, transparent 26%);
+  background-size: 8px 8px;
+}
+
+.bg-screentone-dense {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 20%, transparent 22%);
+  background-size: 4px 4px;
+}
+
+/* Manga Speed Lines */
+.bg-speedlines {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.05) 12px,
+    rgba(255, 255, 255, 0.05) 14px
+  );
+}
+
+.bg-speedlines-diagonal {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.06) 10px,
+    rgba(255, 255, 255, 0.06) 11px
+  );
+}
+
+/* Manga Hatching */
+.bg-crosshatch {
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 0, transparent 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 0, transparent 8px);
+}
+
+/* High Contrast Hard Offset Manga Panel Shadows */
+.manga-shadow {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.manga-shadow-lg {
+  box-shadow: 10px 10px 0px #000000;
+}
+
+.manga-shadow-white {
+  box-shadow: 6px 6px 0px #ffffff;
+}
+
+.manga-shadow-red {
+  box-shadow: 6px 6px 0px #E10600;
+}
+
+.manga-shadow-red-lg {
+  box-shadow: 10px 10px 0px #E10600;
+}
+
+/* Manga Comic Border Utility */
+.manga-border {
+  border: 2px solid #D9D9D9;
+}
+
+.manga-border-thick {
+  border: 4px solid #D9D9D9;
+}
+
+.manga-border-ink {
+  border: 3px solid #050505;
+}
+
+.manga-border-red {
+  border: 2px solid #E10600;
+}
+
+/* Distressed / Ink Grunge Cut corners */
+.manga-clip-corner {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+}
+
+.manga-clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+/* Aged Manga Paper background */
+.paper-texture {
+  background-color: #F4F1EA;
+  color: #050505;
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0),
+    radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 20px 20px, 40px 40px;
+}
+
+/* Dark Aged Paper */
+.dark-paper-texture {
+  background-color: #111111;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* SFX Katakana & Kanji vertical text */
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* Manga Speech Bubble pointers */
+.bubble-tail-bottom {
+  position: relative;
+}
+.bubble-tail-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 28px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid currentColor;
+}
+
+/* Noise overlay */
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Smooth motion handling */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
